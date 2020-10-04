@@ -16,6 +16,8 @@ export class ProductsComponent implements OnInit {
   products:Product[];
   constructor(private productService:ProductService, private authenticationService: AuthenticationService,  private router: Router) {
     this.currentUser=this.authenticationService.CurrentUserValue;
+    if(this.currentUser==null)
+    this.router.navigate(['']);
    }
    isShownButton(){
     if(this.currentUser.role=="Admin")
@@ -26,6 +28,7 @@ export class ProductsComponent implements OnInit {
   }
   ngOnInit() {
     this.loadAllProducts();
+
   }
   public loadAllProducts() {
     return this.productService.getAll()

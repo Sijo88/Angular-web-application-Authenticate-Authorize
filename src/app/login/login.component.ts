@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService)
     {
-      this.currentUser=this.authenticationService.CurrentUserValue;
+      // this.currentUser=this.authenticationService.CurrentUserValue;
+      this.authenticationService.logout();
     }
 
   ngOnInit() {
