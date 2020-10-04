@@ -40,4 +40,8 @@ export class ProductsComponent implements OnInit {
   window.localStorage.setItem("editProductId",product.id);
   
  }
+ public logout()
+ {
+   this.authenticationService.logout()
+ }
 }
