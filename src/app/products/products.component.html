@@ -1,0 +1,22 @@
+<h3>Welcome!!! {{currentUser.userName}}</h3>
+<h5 style="text-align:right;">Your Role:{{currentUser.role}}</h5>
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Product Type</th>
+        <th>Model</th>
+        <th *ngIf=isShownButton()> Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td scope="row">{{product.title}}</td>
+        <td>{{product.productType}}</td>
+        <td>{{product.modelName}}</td>
+        <td>
+               <button class="btn btn-success" (click)="EditProduct(product)" *ngIf=isShownButton()>Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
