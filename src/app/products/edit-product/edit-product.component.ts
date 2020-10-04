@@ -17,6 +17,8 @@ export class EditProductComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,private authenticationService: AuthenticationService,private productService:ProductService,private router:Router) {
     this.currentUser=this.authenticationService.CurrentUserValue;
+    if(this.currentUser==null)
+    this.router.navigate(['']);
     this.productid= window.localStorage.getItem("editProductId");
     
    }
